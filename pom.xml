@@ -10,7 +10,7 @@
         <version>1.0.4</version>
     </parent>
 
-    <artifactId>icy-roi-pool</artifactId>
+    <artifactId>roi-pool</artifactId>
     <version>1.0.5</version>
 
     <packaging>jar</packaging>
