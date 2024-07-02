@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,17 +18,19 @@
 
 package plugins.fab.ROIPool;
 
-import icy.file.FileUtil;
-import icy.gui.component.button.ColorChooserButton;
-import icy.gui.dialog.MessageDialog;
-import icy.gui.frame.IcyFrame;
-import icy.gui.util.ComponentUtil;
-import icy.gui.util.GuiUtil;
-import icy.main.Icy;
-import icy.plugin.abstract_.PluginActionable;
-import icy.roi.ROI;
-import icy.sequence.Sequence;
-import icy.util.XMLUtil;
+import org.bioimageanalysis.icy.Icy;
+import org.bioimageanalysis.icy.extension.plugin.abstract_.PluginActionable;
+import org.bioimageanalysis.icy.extension.plugin.annotation_.IcyPluginName;
+import org.bioimageanalysis.icy.gui.GuiUtil;
+import org.bioimageanalysis.icy.gui.component.ComponentUtil;
+import org.bioimageanalysis.icy.gui.component.button.ColorChooserButton;
+import org.bioimageanalysis.icy.gui.dialog.MessageDialog;
+import org.bioimageanalysis.icy.gui.frame.IcyFrame;
+import org.bioimageanalysis.icy.io.FileUtil;
+import org.bioimageanalysis.icy.io.xml.XMLUtil;
+import org.bioimageanalysis.icy.model.roi.ROI;
+import org.bioimageanalysis.icy.model.sequence.Sequence;
+import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -47,6 +49,7 @@ import java.util.ArrayList;
  *
  * @author Fabrice de Chaumont
  */
+@IcyPluginName("ROI Pool")
 public class ROIPool extends PluginActionable implements ActionListener {
     ArrayList<ROI> ROIList = new ArrayList<>();
 
@@ -124,7 +127,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
 
     JScrollPane roiScrollPanel;
 
-    private Document loadXMLDocument() {
+    private @NotNull Document loadXMLDocument() {
         Document document = XMLUtil.loadDocument(XMLFile);
         roiElements = new ArrayList<>();
 
@@ -183,7 +186,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
         roiScrollPanel.validate();
     }
 
-    private JPanel createROIButton(final Element roiElement) {
+    private @NotNull JPanel createROIButton(final Element roiElement) {
         final JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
@@ -269,14 +272,14 @@ public class ROIPool extends PluginActionable implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed(final @NotNull ActionEvent e) {
         if (e.getSource() == alwaysOnTopCheckBox) {
             mainFrame.setAlwaysOnTop(alwaysOnTopCheckBox.isSelected());
         }
 
         if (e.getSource() == addCurrentSelectedROIToPool) {
 
-            final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").get(0);
+            final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").getFirst();
 
             final Sequence sequence = Icy.getMainInterface().getActiveSequence();
 

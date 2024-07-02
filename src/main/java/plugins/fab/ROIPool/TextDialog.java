@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,6 +18,8 @@
 
 package plugins.fab.ROIPool;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
@@ -31,7 +33,6 @@ public class TextDialog extends JDialog implements ActionListener, PropertyChang
     private final String btnString2 = "Cancel";
 
     public TextDialog(final String title, final String message, final String defaultText) {
-
         setTitle(title);
 
         textField = new JTextField(10);
@@ -73,7 +74,7 @@ public class TextDialog extends JDialog implements ActionListener, PropertyChang
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed(final @NotNull ActionEvent e) {
         if (e.getSource() == textField) {
             isOk = true; // FIXME : rush quickfix. Should not be here but in propertychange.
             optionPane.setValue(JOptionPane.YES_OPTION); // FIXME : the property does not get this
