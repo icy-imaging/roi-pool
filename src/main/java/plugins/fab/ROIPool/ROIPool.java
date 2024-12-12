@@ -195,8 +195,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
 
         final JButton roiButton = new JButton(name);
 
-        roiButton.addActionListener(e -> {
-
+        roiButton.addActionListener(_ -> {
             final ROI roi = ROI.createFromXML(roiElement);
             final Sequence sequence = Icy.getMainInterface().getActiveSequence();
             if (sequence != null) {
@@ -207,8 +206,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
 
         final JButton removeButton = new JButton("x");
         removeButton.setToolTipText("Remove this ROI from this list.");
-        removeButton.addActionListener(e -> {
-
+        removeButton.addActionListener(_ -> {
             XMLUtil.removeAllChildren(roiElement);
             XMLUtil.removeNode(roiElement.getParentNode(), roiElement);
             XMLUtil.saveDocument(document, XMLFile);
@@ -217,8 +215,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
 
         final JButton renameButton = new JButton("r");
         renameButton.setToolTipText("Rename ROI");
-        renameButton.addActionListener(e -> {
-
+        renameButton.addActionListener(_ -> {
             final Element nameElement1 = XMLUtil.getElement(roiElement, "name");
             final String name1 = XMLUtil.getValue(nameElement1, "roi default name");
 
@@ -252,8 +249,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
         final Color color = new Color(Integer.parseInt(XMLUtil.getValue(colorElement, "0")));
         colorChooserButton.setColor(color);
 
-        colorChooserButton.addColorChangeListener(source -> {
-
+        colorChooserButton.addColorChangeListener(_ -> {
             final Element colorElement1 = XMLUtil.getElement(roiElement, ROI.ID_COLOR);
             XMLUtil.setValue(colorElement1, "" + colorChooserButton.getColor().getRGB());
             XMLUtil.saveDocument(document, XMLFile);

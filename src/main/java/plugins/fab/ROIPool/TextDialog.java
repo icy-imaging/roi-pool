@@ -47,7 +47,8 @@ public class TextDialog extends JDialog implements ActionListener, PropertyChang
                 JOptionPane.YES_NO_OPTION,
                 null,
                 options,
-                options[1]);
+                options[1]
+        );
 
         setContentPane(optionPane);
 
@@ -85,7 +86,6 @@ public class TextDialog extends JDialog implements ActionListener, PropertyChang
 
     @Override
     public void propertyChange(final PropertyChangeEvent evt) {
-
         if (btnString1.equals(optionPane.getValue())) {
             isOk = true;
         }

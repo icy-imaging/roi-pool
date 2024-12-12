@@ -7,21 +7,14 @@
     <parent>
         <groupId>org.bioimageanalysis.icy</groupId>
         <artifactId>pom-icy</artifactId>
-        <version>3.0.0-a.1</version>
+        <version>3.0.0-a.3</version>
     </parent>
 
     <artifactId>roi-pool</artifactId>
-    <version>2.0.0-a.1</version>
+    <version>2.0.0-a.2</version>
 
     <name>ROI Pool</name>
     <description>
         Manage a list of ROIs that the user can store and pop back in one click.
     </description>
-
-    <repositories>
-        <repository>
-            <id>icy</id>
-            <url>https://nexus-icy.pasteur.cloud/repository/icy/</url>
-        </repository>
-    </repositories>
 </project>
