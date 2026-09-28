@@ -1,4 +1,4 @@
-![Version 2.0.0 alpha 7](https://img.shields.io/badge/v2.0.0-alpha_7-royalblue)
+![Version 2.0.0 alpha 8](https://img.shields.io/badge/v2.0.0-alpha_8-royalblue)
 ![Java 17+](https://img.shields.io/badge/OpenJDK-17+-5382A1?labelColor=E76F00)
 [![License: LGPL v3](https://img.shields.io/badge/LGPLv3-008033?logo=GPLv3&logoSize=auto)](https://www.gnu.org/licenses/lgpl-3.0)
 [![Twitter](https://img.shields.io/twitter/follow/Icy_BioImaging)](https://x.com/Icy_BioImaging)
@@ -12,8 +12,6 @@ Icy is developed and maintained by [Biological Image Analysis unit at Institut P
 ## Extension description
 
 Manage a list of ROIs that the user can store and pop back in one click.
-
-More detailed user documentation can be found on the ROI Pool documentation page on the Icy website: https://icy.bioimageanalysis.org/plugins/roi-pool/
 
 ## Installation instructions
 
@@ -38,9 +36,9 @@ More detailed user documentation can be found on the ROI Pool documentation page
 Add this dependency block in your `pom.xml`
 ```xml
 <dependency>
-    <groupId>fr.icy.extensions</groupId>
+    <groupId>fr.icy.extension</groupId>
     <artifactId>roi-pool</artifactId>
-    <version>${fr.icy.extensions.roi-pool.version}</version>
+    <version>${fr.icy.extension.roi-pool.version}</version>
 </dependency>
 ```
 

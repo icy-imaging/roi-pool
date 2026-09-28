@@ -43,7 +43,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * This plugin is created to let a user have a number of pre-defined ROI and beeing able to load them at any time,
+ * This plugin is created to let a user have a number of pre-defined ROIs and being able to load them at any time,
  * just in one click. Or grab an existing ROI by selecting it and clicking 'add current selected ROI'
  * Everything is saved in an XML file.
  *
@@ -87,9 +87,9 @@ public class ROIPool extends PluginActionable implements ActionListener {
         // Init XML File
 
         String fileName = System.getProperty("user.home");
-        fileName += FileUtil.separator + "icy" + FileUtil.separator + "ROI pool plugin";
+        fileName += FileUtil.separator + ".icy" + FileUtil.separator + "roi-pool";
         FileUtil.createDir(new File(fileName));
-        fileName += FileUtil.separator + "ROIPool.xml";
+        fileName += FileUtil.separator + "roi-pool.xml";
         XMLFile = new File(fileName);
 
         // ROI list
@@ -174,8 +174,8 @@ public class ROIPool extends PluginActionable implements ActionListener {
             panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("in the list will put it back in the current")));
             panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("sequence selected.")));
             panelROIList.add(GuiUtil.createLineBoxPanel(Box.createVerticalStrut(10)));
-            panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("This ROI list is automaticaly saved on your")));
-            panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("computer in the file home/icy/ROI Pool.xml")));
+            panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("This ROI list is automatically saved on your")));
+            panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("computer in the file home/.icy/roi-pool/roi-pool.xml")));
             panelROIList.add(GuiUtil.createLineBoxPanel(Box.createVerticalStrut(10)));
             panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("This help message will not be displayed as")));
             panelROIList.add(GuiUtil.createLineBoxPanel(new JLabel("you will have add some ROIs in the list.")));
@@ -292,7 +292,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
                 }
 
                 if (!anROIAsBeenAdded) {
-                    MessageDialog.showDialog("No ROI is selected. To select a ROI, just click on it.", MessageDialog.INFORMATION_MESSAGE);
+                    MessageDialog.showDialog("No ROI is selected. To select a ROI, just click on it.", JOptionPane.INFORMATION_MESSAGE);
                 }
 
                 XMLUtil.saveDocument(document, XMLFile);
@@ -300,7 +300,7 @@ public class ROIPool extends PluginActionable implements ActionListener {
                 refreshPanelROIList();
             }
             else {
-                MessageDialog.showDialog("There is no active sequence.", MessageDialog.WARNING_MESSAGE);
+                MessageDialog.showDialog("There is no active sequence.", JOptionPane.WARNING_MESSAGE);
             }
 
 //			mainPanel.validate();
